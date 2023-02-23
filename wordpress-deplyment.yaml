@@ -25,14 +25,13 @@ spec:
             value: mysql-service
           - name: WORDPRESS_DB_PASSWORD
             valueFrom:
-              secretKeyRef:
-                name: mysql-secret
-                key: password
+                secretKeyRef:
+                  name: mysql-secret
+                  key: password
         volumeMounts:
           - name: wordpress-volume
             mountPath: /var/www/html
-            
-      volumes: 
+      volumes:
         - name: wordpress-volume
           persistentVolumeClaim:
               claimName: wordpress-pvc
